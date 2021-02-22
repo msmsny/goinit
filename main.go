@@ -79,7 +79,7 @@ func main() {
 		}
 
 		// create file
-		filePath := fmt.Sprintf("%s/%s", dir, fileName[:len(fileName)-len(".tpl")])
+		filePath := fmt.Sprintf("%s/%s", dir, fileName[:len(fileName)-len(".txt")])
 		file, err := os.Create(filePath)
 		if err != nil {
 			log.Fatalf("os.Create: %s, path: %s", err, filePath)
