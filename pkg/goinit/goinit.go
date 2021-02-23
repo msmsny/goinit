@@ -19,7 +19,7 @@ func Run() error {
 	pathToRepo := filepath.Dir(filepath.Join(wd, "..", ".."))
 	repo := flag.String("repo", wd[len(pathToRepo+"/"):], "path to repo, e.g.: github.com/msmsny/goinit")
 	name := flag.String("name", "", "main command name(required)")
-	subName := flag.String("sub", "sub", "sub command name")
+	subName := flag.String("sub", "", "sub command name")
 	flag.Parse()
 
 	if *name == "" {

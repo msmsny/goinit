@@ -18,6 +18,10 @@ func (g *goinit) run(wd string) error {
 		if d.IsDir() {
 			return nil
 		}
+		if g.params.SubName == "" && strings.Contains(path, "/sub") {
+			return nil
+		}
+
 		pathToFile := strings.Replace(filepath.Dir(path)[len("template"):], "name", g.params.Name, 1)
 		pathToFile = strings.Replace(pathToFile, "sub", g.params.SubName, 1)
 		dir := wd + pathToFile

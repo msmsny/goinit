@@ -2,7 +2,9 @@ package {{.Name}}
 
 import (
 	"{{.Repo}}/pkg/cmd/{{.Name}}/options"
+{{- if .SubName}}
 	"{{.Repo}}/pkg/cmd/{{.Name}}/{{.SubName}}"
+{{- end}}
 	"github.com/spf13/cobra"
 )
 
@@ -31,9 +33,9 @@ func New{{.UpperName}}Command() *cobra.Command {
 	cobra.OnInitialize(func() {
 		// ...
 	})
-
+{{if .SubName}}
 	// add sub command
 	cmds.AddCommand({{.SubName}}.New{{.UpperSubName}}Command(opt))
-
+{{end}}
 	return cmds
 }

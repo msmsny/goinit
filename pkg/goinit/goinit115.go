@@ -25,6 +25,9 @@ func (g *goinit) run(wd string) error {
 		if info.IsDir() {
 			return nil
 		}
+		if g.params.SubName == "" && strings.Contains(path, "/sub") {
+			return nil
+		}
 
 		pathToFile := strings.Replace(filepath.Dir(path), "name", g.params.Name, 1)
 		pathToFile = strings.Replace(pathToFile, "sub", g.params.SubName, 1)
