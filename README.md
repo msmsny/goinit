@@ -28,3 +28,21 @@ Usage of /path/to/bin/goinit:
 ```bash
 $ goinit -name foo -sub bar
 ```
+
+```bash
+$ tree
+.
+├── cmd
+│   └── foo
+│       └── foo.go
+└── pkg
+    ├── cmd
+    │   └── foo
+    │       ├── bar
+    │       │   └── bar.go
+    │       ├── foo.go
+    │       └── options
+    │           └── options.go
+    └── foo
+        └── foo.go
+```
