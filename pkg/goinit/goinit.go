@@ -28,16 +28,18 @@ func Run() error {
 		os.Exit(1)
 	}
 
-	params := &templateParams{
-		Repo:         *repo,
-		Name:         *name,
-		UpperName:    strings.Title(*name),
-		SubName:      *subName,
-		UpperSubName: strings.Title(*subName),
+	goinit := &goinit{
+		params: &templateParams{
+			Repo:         *repo,
+			Name:         *name,
+			UpperName:    strings.Title(*name),
+			SubName:      *subName,
+			UpperSubName: strings.Title(*subName),
+		},
+		tpl: template.New("goinit"),
 	}
-	textTpl := template.New("goinit")
 
-	return run(wd, params, textTpl)
+	return goinit.run(wd)
 }
 
 type templateParams struct {
@@ -48,12 +50,12 @@ type templateParams struct {
 	UpperSubName string
 }
 
-func create(
-	dir, fileName string,
-	params *templateParams,
-	textTpl *template.Template,
-	rawTpl []byte,
-) error {
+type goinit struct {
+	params *templateParams
+	tpl    *template.Template
+}
+
+func (g *goinit) create(dir, fileName string, rawTpl []byte) error {
 	// create directory if not exist
 	if _, err := os.Stat(dir); err != nil {
 		if os.IsNotExist(err) {
@@ -64,13 +66,13 @@ func create(
 	}
 
 	// embed template parameters
-	t, err := textTpl.Parse(string(rawTpl))
+	t, err := g.tpl.Parse(string(rawTpl))
 	if err != nil {
 		return fmt.Errorf("template.Parse: %s", err)
 	}
 	contents := &bytes.Buffer{}
-	if err := t.Execute(contents, params); err != nil {
-		return fmt.Errorf("template.Execute: %s, params: %#v", err, params)
+	if err := t.Execute(contents, g.params); err != nil {
+		return fmt.Errorf("template.Execute: %s, params: %#v", err, g.params)
 	}
 
 	// create file
