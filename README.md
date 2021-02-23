@@ -2,10 +2,6 @@
 
 Go project init tool
 
-## Requirements
-
-Go1.16+
-
 ## Install
 
 ```bash
