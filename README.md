@@ -5,7 +5,7 @@ Go project init tool
 ## Install
 
 ```bash
-$ go install github.com/msmsny/goinit
+$ go get github.com/msmsny/goinit
 ```
 
 ## Usage
