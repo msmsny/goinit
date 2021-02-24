@@ -55,7 +55,7 @@ type goinit struct {
 	tpl    *template.Template
 }
 
-func (g *goinit) create(dir, fileName string, rawTpl []byte) error {
+func (g *goinit) generate(dir, fileName string, rawTpl []byte) error {
 	// create directory if not exist
 	if _, err := os.Stat(dir); err != nil {
 		if os.IsNotExist(err) {

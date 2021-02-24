@@ -33,6 +33,6 @@ func (g *goinit) run(wd string) error {
 			return fmt.Errorf("tpl.ReadFile: %s, path: %s", err, path)
 		}
 
-		return g.create(dir, fileName, rawTpl)
+		return g.generate(dir, fileName, rawTpl)
 	})
 }

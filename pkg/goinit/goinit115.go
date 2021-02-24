@@ -44,6 +44,6 @@ func (g *goinit) run(wd string) error {
 			fmt.Errorf("ioutil.ReadAll: %s", err)
 		}
 
-		return g.create(dir, fileName, rawTpl)
+		return g.generate(dir, fileName, rawTpl)
 	})
 }
