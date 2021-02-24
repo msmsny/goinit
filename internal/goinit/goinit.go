@@ -20,6 +20,7 @@ func Run() error {
 	repo := flag.String("repo", wd[len(pathToRepo+"/"):], "path to repo, e.g.: github.com/msmsny/goinit")
 	name := flag.String("name", "", "main command name(required)")
 	subName := flag.String("sub", "", "sub command name")
+	appDir := flag.String("app-dir", "internal", "application code directory")
 	flag.Parse()
 
 	if *name == "" {
@@ -35,6 +36,7 @@ func Run() error {
 			UpperName:    strings.Title(*name),
 			SubName:      *subName,
 			UpperSubName: strings.Title(*subName),
+			AppDir:       *appDir,
 		},
 		tpl: template.New("goinit"),
 	}
@@ -48,6 +50,7 @@ type templateParams struct {
 	UpperName    string
 	SubName      string
 	UpperSubName string
+	AppDir       string
 }
 
 type goinit struct {

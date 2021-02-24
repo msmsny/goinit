@@ -1,9 +1,9 @@
 package {{.Name}}
 
 import (
-	"{{.Repo}}/pkg/cmd/{{.Name}}/options"
+	"{{.Repo}}/{{.AppDir}}/cmd/{{.Name}}/options"
 {{- if .SubName}}
-	"{{.Repo}}/pkg/cmd/{{.Name}}/{{.SubName}}"
+	"{{.Repo}}/{{.AppDir}}/cmd/{{.Name}}/{{.SubName}}"
 {{- end}}
 	"github.com/spf13/cobra"
 )

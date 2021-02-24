@@ -31,7 +31,7 @@ $ tree
 ├── cmd
 │   └── foo
 │       └── foo.go
-└── pkg
+└── internal
     ├── cmd
     │   └── foo
     │       ├── foo.go
@@ -51,7 +51,7 @@ $ tree
 ├── cmd
 │   └── foo
 │       └── foo.go
-└── pkg
+└── internal
     ├── cmd
     │   └── foo
     │       ├── bar
