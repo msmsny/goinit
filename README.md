@@ -13,6 +13,8 @@ $ go get github.com/msmsny/goinit
 ```bash
 $ goinit -help
 Usage of /path/to/bin/goinit:
+  -app-dir string
+    	application code directory (default "internal")
   -name string
     	main command name(required)
   -repo string
