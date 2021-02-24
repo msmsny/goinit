@@ -82,7 +82,9 @@ func (g *goinit) generate(dir, fileName string, rawTpl []byte) error {
 		return fmt.Errorf("os.Create: %s, path: %s", err, filePath)
 	}
 	defer file.Close()
-	file.Write(contents.Bytes())
+	if _, err := file.Write(contents.Bytes()); err != nil {
+		return fmt.Errorf("file.Write: %s", err)
+	}
 
 	return nil
 }
