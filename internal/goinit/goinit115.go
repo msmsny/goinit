@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	_ "github.com/msmsny/goinit/pkg/goinit/statik"
+	_ "github.com/msmsny/goinit/internal/goinit/statik"
 	statikfs "github.com/rakyll/statik/fs"
 )
 
