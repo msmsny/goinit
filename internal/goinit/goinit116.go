@@ -18,7 +18,7 @@ func (g *goinit) run(wd string) error {
 		if d.IsDir() {
 			return nil
 		}
-		if g.params.SubName == "" && strings.Contains(path, "/sub") {
+		if g.params.SubName == "" && strings.Contains(path, filepath.FromSlash("/sub")) {
 			return nil
 		}
 

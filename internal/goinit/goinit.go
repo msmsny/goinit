@@ -76,7 +76,7 @@ func (g *goinit) generate(dir, fileName string, rawTpl []byte) error {
 	}
 
 	// create file
-	filePath := fmt.Sprintf("%s/%s", dir, fileName[:len(fileName)-len(".txt")])
+	filePath := fmt.Sprintf(filepath.FromSlash("%s/%s"), dir, fileName[:len(fileName)-len(".txt")])
 	file, err := os.Create(filePath)
 	if err != nil {
 		return fmt.Errorf("os.Create: %s, path: %s", err, filePath)
