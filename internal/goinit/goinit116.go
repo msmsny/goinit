@@ -15,6 +15,9 @@ var tpl embed.FS
 
 func (g *goinit) run(wd string) error {
 	return fs.WalkDir(tpl, "template", func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return fmt.Errorf("fs.WalkDir: %s", err)
+		}
 		if d.IsDir() {
 			return nil
 		}

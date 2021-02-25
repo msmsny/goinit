@@ -61,7 +61,9 @@ func (g *goinit) generate(dir, fileName string, rawTpl []byte) error {
 	// create directory if not exist
 	if _, err := os.Stat(dir); err != nil {
 		if os.IsNotExist(err) {
-			os.MkdirAll(dir, 0755)
+			if err := os.MkdirAll(dir, 0755); err != nil {
+				return fmt.Errorf("os.MkdirAll: %s", err)
+			}
 		} else {
 			return fmt.Errorf("os.Stat: %s", err)
 		}
