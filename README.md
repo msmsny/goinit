@@ -1,5 +1,6 @@
 # goinit
 
+[![Test](https://github.com/msmsny/goinit/actions/workflows/test.yml/badge.svg)](https://github.com/msmsny/goinit/actions/workflows/test.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/msmsny/goinit.svg)](https://pkg.go.dev/github.com/msmsny/goinit)
 [![Go Report Card](https://goreportcard.com/badge/github.com/msmsny/goinit)](https://goreportcard.com/report/github.com/msmsny/goinit)
 
