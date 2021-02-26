@@ -42,7 +42,7 @@ jobs:
         go install .
     - name: Lint
       id: lint
-      uses: golangci/golangci-lint-action@v2
+      uses: golangci/golangci-lint-action@v2.5.1
       with:
         version: v1.37
       continue-on-error: true
