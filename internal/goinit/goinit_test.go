@@ -72,9 +72,9 @@ func TestRun(t *testing.T) {
 			assert.NoError(t, tt.goinit.run(tempDir))
 
 			for tplPath, path := range tt.paths {
-				rawTpl, err := ioutil.ReadFile(filepath.FromSlash(wd + "/" + tplPath))
+				rawTpl, err := readFile(filepath.FromSlash(wd + "/" + tplPath))
 				assert.NoError(t, err)
-				tpl, err := tt.goinit.tpl.Parse(strings.Replace(string(rawTpl), "\r\n", "\n", -1))
+				tpl, err := tt.goinit.tpl.Parse(rawTpl)
 				assert.NoError(t, err)
 				wantCode := &bytes.Buffer{}
 				assert.NoError(t, tpl.Execute(wantCode, tt.goinit.params))

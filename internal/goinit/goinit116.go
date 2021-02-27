@@ -6,6 +6,7 @@ import (
 	"embed"
 	"fmt"
 	"io/fs"
+	"io/ioutil"
 	"path/filepath"
 	"strings"
 )
@@ -39,4 +40,14 @@ func (g *goinit) run(wd string) error {
 
 		return g.generate(dir, fileName, rawTpl)
 	})
+}
+
+// readFile reads file
+func readFile(path string) (string, error) {
+	file, err := ioutil.ReadFile(path)
+	if err != nil {
+		return "", fmt.Errorf("ioutil.ReadFile: %s", err)
+	}
+
+	return string(file), nil
 }

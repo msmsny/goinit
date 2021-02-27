@@ -51,3 +51,13 @@ func (g *goinit) run(wd string) error {
 		return g.generate(dir, fileName, rawTpl)
 	})
 }
+
+// readFile reads file from path and replaces CRLF for windows
+func readFile(path string) (string, error) {
+	file, err := ioutil.ReadFile(path)
+	if err != nil {
+		return "", fmt.Errorf("ioutil.ReadFile: %s", err)
+	}
+
+	return strings.Replace(string(file), "\r\n", "\n", -1), nil
+}
