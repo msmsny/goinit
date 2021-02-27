@@ -22,6 +22,9 @@ func (g *goinit) run(wd string) error {
 	}
 
 	return statikfs.Walk(httpfs, "/", func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return fmt.Errorf("statikfs.Walk: %s", err)
+		}
 		if info.IsDir() {
 			return nil
 		}
@@ -38,11 +41,11 @@ func (g *goinit) run(wd string) error {
 
 		file, err := httpfs.Open(path)
 		if err != nil {
-			fmt.Errorf("httpfs.Open: %s", err)
+			return fmt.Errorf("httpfs.Open: %s", err)
 		}
 		rawTpl, err := ioutil.ReadAll(file)
 		if err != nil {
-			fmt.Errorf("ioutil.ReadAll: %s", err)
+			return fmt.Errorf("ioutil.ReadAll: %s", err)
 		}
 
 		return g.generate(dir, fileName, rawTpl)
