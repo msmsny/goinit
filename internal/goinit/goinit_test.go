@@ -81,7 +81,8 @@ func TestRun(t *testing.T) {
 
 				gotCode, err := ioutil.ReadFile(filepath.FromSlash(tempDir + "/" + path))
 				assert.NoError(t, err)
-				assert.Equal(t, wantCode.Bytes(), gotCode)
+				// compare as string for debug
+				assert.Equal(t, wantCode.String(), string(gotCode))
 			}
 		})
 	}
