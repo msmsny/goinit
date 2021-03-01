@@ -9,7 +9,7 @@ on:
     - opened
     - synchronize
   schedule:
-  - cron: '0 1 * * 1'
+  - cron: '30 13 * * 3'
 
 jobs:
   build:
