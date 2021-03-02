@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/msmsny/goinit/internal/goinit"
+	"github.com/msmsny/goinit/goinit"
 )
 
 func main() {
