@@ -19,7 +19,7 @@ $ go get github.com/msmsny/goinit
 $ goinit -help
 Usage of /path/to/bin/goinit:
   -app-dir string
-    	application code directory (default "internal")
+    	application code directory (default "pkg")
   -name string
     	main command name(required)
   -repo string
@@ -38,7 +38,7 @@ $ tree
 ├── cmd
 │   └── foo
 │       └── foo.go
-└── internal
+└── pkg 
     ├── cmd
     │   └── foo
     │       ├── foo.go
@@ -58,7 +58,7 @@ $ tree
 ├── cmd
 │   └── foo
 │       └── foo.go
-└── internal
+└── pkg
     ├── cmd
     │   └── foo
     │       ├── bar
