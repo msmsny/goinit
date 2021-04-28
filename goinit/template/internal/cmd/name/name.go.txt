@@ -27,6 +27,7 @@ func New{{.UpperName}}Command() *cobra.Command {
 
 	// describe persistent flags
 	pflags := cmds.PersistentFlags()
+	pflags.SortFlags = false
 	pflags.StringVar(&opt.Opt1, "opt1", "default-value", "opt1 description")
 
 	// initialize

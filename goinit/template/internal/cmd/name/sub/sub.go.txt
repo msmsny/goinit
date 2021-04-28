@@ -20,6 +20,7 @@ func New{{.UpperSubName}}Command(opt *options.Option) *cobra.Command {
 
 	// describe flags
 	flags := cmds.Flags()
+	flags.SortFlags = false
 	flags.StringVar(&opt.Opt2, "opt2", "default-value", "opt2 description")
 
 	return cmds
