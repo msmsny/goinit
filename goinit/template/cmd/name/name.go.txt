@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"os"
 
-	cmd "{{.Repo}}/{{.CmdDir}}/cmd/{{.Name}}"
+	"{{.Repo}}/{{.CmdDir}}/{{.Name}}"
 )
 
 func main() {
-	if err := cmd.Execute(); err != nil {
+	if err := {{.Name}}.Execute(); err != nil {
 		fmt.Fprintf(os.Stderr, "%+v\n", err)
 		os.Exit(1)
 	}
