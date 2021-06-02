@@ -20,7 +20,7 @@ func TestRun(t *testing.T) {
 	repo := "path/to/repo"
 	name := "foo"
 	subName := "bar"
-	appDir := "internal"
+	cmdDir := "internal"
 	ttpl := template.New("goinit")
 
 	testCases := map[string]struct {
@@ -33,14 +33,14 @@ func TestRun(t *testing.T) {
 					Repo:      repo,
 					Name:      name,
 					UpperName: strings.Title(name),
-					CmdDir:    appDir,
+					CmdDir:    cmdDir,
 				},
 				tpl: ttpl,
 			},
 			paths: map[string]string{
-				"template/cmd/name/name.go.txt":                     fmt.Sprintf("cmd/%s/%s.go", name, name),
-				"template/internal/cmd/name/name.go.txt":            fmt.Sprintf("%s/cmd/%s/%s.go", appDir, name, name),
-				"template/internal/cmd/name/options/options.go.txt": fmt.Sprintf("%s/cmd/%s/options/options.go", appDir, name),
+				"template/cmd/name/name.go.txt":                fmt.Sprintf("cmd/%s/%s.go", name, name),
+				"template/internal/cmd/name/name.go.txt":       fmt.Sprintf("%s/%s/%s.go", cmdDir, name, name),
+				"template/internal/cmd/options/options.go.txt": fmt.Sprintf("%s/options/options.go", cmdDir),
 			},
 		},
 		"sub": {
@@ -51,15 +51,15 @@ func TestRun(t *testing.T) {
 					UpperName:    strings.Title(name),
 					SubName:      subName,
 					UpperSubName: strings.Title(subName),
-					CmdDir:       appDir,
+					CmdDir:       cmdDir,
 				},
 				tpl: ttpl,
 			},
 			paths: map[string]string{
-				"template/cmd/name/name.go.txt":                     fmt.Sprintf("cmd/%s/%s.go", name, name),
-				"template/internal/cmd/name/name.go.txt":            fmt.Sprintf("%s/cmd/%s/%s.go", appDir, name, name),
-				"template/internal/cmd/name/options/options.go.txt": fmt.Sprintf("%s/cmd/%s/options/options.go", appDir, name),
-				"template/internal/cmd/name/sub/sub.go.txt":         fmt.Sprintf("%s/cmd/%s/%s/%s.go", appDir, name, subName, subName),
+				"template/cmd/name/name.go.txt":                fmt.Sprintf("cmd/%s/%s.go", name, name),
+				"template/internal/cmd/name/name.go.txt":       fmt.Sprintf("%s/%s/%s.go", cmdDir, name, name),
+				"template/internal/cmd/options/options.go.txt": fmt.Sprintf("%s/options/options.go", cmdDir),
+				"template/internal/cmd/sub/sub.go.txt":         fmt.Sprintf("%s/%s/%s.go", cmdDir, subName, subName),
 			},
 		},
 	}
