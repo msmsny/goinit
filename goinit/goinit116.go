@@ -28,7 +28,7 @@ func (g *goinit) run(wd string) error {
 
 		pathToFile := strings.Replace(filepath.Dir(path)[len("template"):], "name", g.params.Name, 1)
 		pathToFile = strings.Replace(pathToFile, "sub", g.params.SubName, 1)
-		pathToFile = strings.Replace(pathToFile, "internal", g.params.CmdDir, 1)
+		pathToFile = strings.Replace(pathToFile, "internal/cmd", g.params.CmdDir, 1)
 		dir := wd + pathToFile
 		fileName := strings.Replace(d.Name(), "name", g.params.Name, 1)
 		fileName = strings.Replace(fileName, "sub", g.params.SubName, 1)
