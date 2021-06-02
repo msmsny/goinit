@@ -18,8 +18,8 @@ $ go get github.com/msmsny/goinit
 ```bash
 $ goinit -help
 Usage of /path/to/bin/goinit:
-  -app-dir string
-    	application code directory (default "pkg")
+  -cmd-dir string
+    	cobra command code directory (default "pkg/cmd")
   -name string
     	main command name(required)
   -repo string
@@ -38,14 +38,12 @@ $ tree
 ├── cmd
 │   └── foo
 │       └── foo.go
-└── pkg 
-    ├── cmd
-    │   └── foo
-    │       ├── foo.go
-    │       └── options
-    │           └── options.go
-    └── foo
-        └── foo.go
+└── pkg
+    └── cmd
+        ├── foo
+        │   └── foo.go
+        └── options
+            └── options.go
 ```
 
 ```bash
@@ -59,13 +57,11 @@ $ tree
 │   └── foo
 │       └── foo.go
 └── pkg
-    ├── cmd
-    │   └── foo
-    │       ├── bar
-    │       │   └── bar.go
-    │       ├── foo.go
-    │       └── options
-    │           └── options.go
-    └── foo
-        └── foo.go
+    └── cmd
+        ├── bar
+        │   └── bar.go
+        ├── foo
+        │   └── foo.go
+        └── options
+            └── options.go
 ```
