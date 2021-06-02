@@ -41,7 +41,6 @@ func TestRun(t *testing.T) {
 				"template/cmd/name/name.go.txt":                     fmt.Sprintf("cmd/%s/%s.go", name, name),
 				"template/internal/cmd/name/name.go.txt":            fmt.Sprintf("%s/cmd/%s/%s.go", appDir, name, name),
 				"template/internal/cmd/name/options/options.go.txt": fmt.Sprintf("%s/cmd/%s/options/options.go", appDir, name),
-				"template/internal/name/name.go.txt":                fmt.Sprintf("%s/%s/%s.go", appDir, name, name),
 			},
 		},
 		"sub": {
@@ -61,7 +60,6 @@ func TestRun(t *testing.T) {
 				"template/internal/cmd/name/name.go.txt":            fmt.Sprintf("%s/cmd/%s/%s.go", appDir, name, name),
 				"template/internal/cmd/name/options/options.go.txt": fmt.Sprintf("%s/cmd/%s/options/options.go", appDir, name),
 				"template/internal/cmd/name/sub/sub.go.txt":         fmt.Sprintf("%s/cmd/%s/%s/%s.go", appDir, name, subName, subName),
-				"template/internal/name/name.go.txt":                fmt.Sprintf("%s/%s/%s.go", appDir, name, name),
 			},
 		},
 	}
