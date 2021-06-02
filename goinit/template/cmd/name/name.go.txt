@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	cmd "{{.Repo}}/{{.AppDir}}/cmd/{{.Name}}"
+	cmd "{{.Repo}}/{{.CmdDir}}/cmd/{{.Name}}"
 )
 
 func main() {
