@@ -20,7 +20,7 @@ func Run() error {
 	repo := flag.String("repo", wd[len(pathToRepo+"/"):], "path to repo, e.g.: github.com/msmsny/goinit")
 	name := flag.String("name", "", "main command name(required)")
 	subName := flag.String("sub", "", "sub command name")
-	cmdDir := flag.String("cmd-dir", filepath.FromSlash("pkg/cmd"), "cobra command code directory")
+	cmdDir := flag.String("cmd-dir", "pkg/cmd", "cobra command code directory")
 	flag.Parse()
 
 	if *name == "" {
