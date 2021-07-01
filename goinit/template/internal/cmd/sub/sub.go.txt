@@ -14,8 +14,8 @@ func New{{.UpperSubName}}Command(opt *options.Option) *cobra.Command {
 			// implement sub command
 			return nil
 		},
-		SilenceErrors: false,
-		SilenceUsage:  false,
+		SilenceErrors: true,
+		SilenceUsage:  true,
 	}
 
 	// describe flags
