@@ -1,3 +1,4 @@
+//go:build !go1.16
 // +build !go1.16
 
 package goinit
@@ -11,8 +12,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	_ "github.com/msmsny/goinit/goinit/statik"
 	statikfs "github.com/rakyll/statik/fs"
+
+	_ "github.com/msmsny/goinit/goinit/statik"
 )
 
 func (g *goinit) run(wd string) error {
